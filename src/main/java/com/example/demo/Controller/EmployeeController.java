@@ -55,15 +55,30 @@ public class EmployeeController
 			return new ResponseEntity<String>("Employee Already Deleted",HttpStatus.OK);
 		}
 	}
-	
-	
+
 	@PutMapping("updatetheEmployeeDepartment{id}and{departmentName}")
 	public ResponseEntity<String> deleteEmployee(@PathVariable int id,@PathVariable String departmentName)
 	{
 		employeeService.updateTheEmployeeDepartment(id, departmentName);
 		return new ResponseEntity<String>("Employee Department Updated",HttpStatus.OK);
 	}
-	
+
+
+	@PostMapping("save_addEmployee")
+	public ResponseEntity<String> save_addEmployee(@RequestBody EmployeeRequest employeeRequest)
+	{
+		boolean findThePresenceOfEmployee = employeeService.findThePresenceOfEmployee(employeeRequest);
+		if(findThePresenceOfEmployee)
+		{
+			employeeService.saveEmployee(employeeRequest);
+			return new ResponseEntity<String>("Employee Updated",HttpStatus.OK);
+		}
+		else
+		{
+			employeeService.addEmployee(employeeRequest);
+			return new ResponseEntity<String>("Employee Added",HttpStatus.OK);
+		}
+	}
 	
 
 }
