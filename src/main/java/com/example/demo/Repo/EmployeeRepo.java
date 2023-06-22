@@ -10,5 +10,10 @@ public interface EmployeeRepo extends JpaRepository<Employee, Integer>
 {
 	Employee findById(int id);
 	Employee findByAddress(String address);
+	@Query
+	(value = "select * from employee where age=:age and name=:name",
+	 nativeQuery = true)
+	Employee findThePresenceOfEmployee(int age,@Param("name") String name);
+	 	
 
 }
