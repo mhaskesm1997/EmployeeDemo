@@ -9,5 +9,6 @@ import com.example.demo.Domain.Employee;
 public interface EmployeeRepo extends JpaRepository<Employee, Integer>
 {
 	Employee findById(int id);
+	Employee findByAddress(String address);
 
 }
