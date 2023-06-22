@@ -47,7 +47,7 @@ public class EmployeeController
 		if(employee)
 		{
 			employeeService.deleteTheEmployee(id);
-			return new ResponseEntity<String>("Employee Added",HttpStatus.OK);
+			return new ResponseEntity<String>("Employee Deleted",HttpStatus.OK);
 		}
 		else
 		{
