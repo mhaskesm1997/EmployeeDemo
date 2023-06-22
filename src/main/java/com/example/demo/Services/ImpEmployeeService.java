@@ -20,5 +20,9 @@ public interface ImpEmployeeService
 	
 	void updateTheEmployeeDepartment(int id,String departmentName);
 	
+	void saveEmployee(EmployeeRequest employeeRequest);
+	
+	boolean findThePresenceOfEmployee(EmployeeRequest employeeRequest);
+	
 
 }
