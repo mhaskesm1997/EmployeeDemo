@@ -63,4 +63,34 @@ public class EmployeeService implements ImpEmployeeService
 		
 	}
 
+	@Override
+	public boolean findThePresenceOfEmployee(EmployeeRequest employeeRequest)
+	{
+		
+		Employee findThePresenceOfEmployee = employeeRepo.findThePresenceOfEmployee(employeeRequest.getAge(),employeeRequest.getName());
+		
+		if(findThePresenceOfEmployee!=null)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	@Override
+	public void saveEmployee(EmployeeRequest employeeRequest)
+	{
+		
+		Employee employee = employeeRepo.findThePresenceOfEmployee(employeeRequest.getAge(),employeeRequest.getName());
+		
+		employee.setAge(employeeRequest.getAge());
+		employee.setName(employeeRequest.getName());
+		employee.setAddress(employeeRequest.getAddress());
+		employee.setDepartmentName(employeeRequest.getDepartmentName());
+		employeeRepo.save(employee);
+		
+	}
+
 }
